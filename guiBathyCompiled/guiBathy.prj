@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="2148139376" file="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled" name="guiBathy" preferred-package-location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="173818859" file="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled" name="guiBathy" preferred-package-location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>guiBathy</param.appname>
     <param.icon>${PROJECT_ROOT}\guiBathy_resources\icon.ico</param.icon>
     <param.icons>
@@ -30,8 +30,8 @@ More information on software use and data collection requirements can be found i
     <param.user.defined.mcr.options />
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
-    <param.web.mcr>false</param.web.mcr>
-    <param.package.mcr>true</param.package.mcr>
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
     <param.web.mcr.name>guibathy2installer_web</param.web.mcr.name>
     <param.package.mcr.name>guibathy2installer_mcr</param.package.mcr.name>
@@ -66,6 +66,8 @@ More information on software use and data collection requirements can be found i
       <param.user.defined.mcr.options />
       <param.target.type />
       <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
       <param.no.mcr />
       <param.no.mcr.name />
       <param.native.matlab />
@@ -86,6 +88,7 @@ More information on software use and data collection requirements can be found i
       <file>C:\Users\Chonkosaurus\Documents\GitHub\Copy_of_UAS-Hover-GUI\guiParts\clickGCPsTab\help_gcp.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\Copy_of_UAS-Hover-GUI\guiParts\clickGCPsTab\saveGCP.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\Copy_of_UAS-Hover-GUI\guiParts\clickGCPsTab\saveGCPXYZ.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\aerielle.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\alterAnalysisArray.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\analyzeBathyCollect.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\analyzeSingleBathyRun.m</file>
@@ -311,6 +314,13 @@ More information on software use and data collection requirements can be found i
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\timestackGenTab\timestackPlotRes.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\timestackGenTab\timestackReset.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\timestackGenTab\timestackSave.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\euclidean_dist.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\merge_data.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\RBF.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\seuclidean_dist.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\sqeuclidean_dist.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\test_merge_data.m</file>
+      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\truthcompare.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\parametric_beach_tool\adjust_tide.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\parametric_beach_tool\boundary_condition.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\parametric_beach_tool\brittany_tide_test.m</file>
@@ -340,51 +350,9 @@ More information on software use and data collection requirements can be found i
       <file>C:\Users\Chonkosaurus\Downloads\ERDC-CHL TR-21-3.pdf</file>
     </fileset.package>
     <fileset.depfun>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\alterAnalysisArray.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\analyzeBathyCollect.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\bathyCI.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\bathyFromKAlpha.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\cBathyVersion.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\cBDebug.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\Contents.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\csmInvertKAlpha.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\dispsol.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\findGoodTransects.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\findInterpMap.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\findKAlphaSeed.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\findProcessError.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\fixBathyTide.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\KalmanFilterBathy.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\kInvertDepthModel.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\LMFnlsq.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\makeKalmanBathySeed.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\matlab2Epoch.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\plotBathyCollect.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\plotBathyKalmanStep.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\plotPhaseTile.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\plotStacksAndPhaseMaps.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\predictCSM.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\prepareTiles.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\prepBathyInput.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\tstat3.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\cBathy-Toolbox\useInterpMap.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\addGCP.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\assignGCPstartup.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\clearGCPXYZTab.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\clickGCPsFrameChoose.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\clickGCPsStartup.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\clickGCPsUVdChoose.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\deleteGCP.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\help_gcp.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\saveGCP.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\clickGCPsTab\saveGCPXYZ.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\projectInitiationTab\loadProject.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\projectInitiationTab\loadVideos.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiParts\projectInitiationTab\newProject.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\euclidean_dist.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\merge_data.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\RBF.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\merge_data\sqeuclidean_dist.m</file>
     </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}\guiBathy\for_testing" name="readme.txt" optional="true">C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy\for_testing\readme.txt</file>
