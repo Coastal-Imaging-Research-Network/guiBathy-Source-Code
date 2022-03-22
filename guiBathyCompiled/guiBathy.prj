@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="173818859" file="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled" name="guiBathy" preferred-package-location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="2631689688" file="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled" name="guiBathy" preferred-package-location="C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\guiBathyCompiled\guiBathy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>guiBathy</param.appname>
     <param.icon>${PROJECT_ROOT}\guiBathy_resources\icon.ico</param.icon>
     <param.icons>
@@ -30,8 +30,8 @@ More information on software use and data collection requirements can be found i
     <param.user.defined.mcr.options />
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
-    <param.web.mcr>true</param.web.mcr>
-    <param.package.mcr>false</param.package.mcr>
+    <param.web.mcr>false</param.web.mcr>
+    <param.package.mcr>true</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
     <param.web.mcr.name>guibathy2installer_web</param.web.mcr.name>
     <param.package.mcr.name>guibathy2installer_mcr</param.package.mcr.name>
@@ -66,8 +66,6 @@ More information on software use and data collection requirements can be found i
       <param.user.defined.mcr.options />
       <param.target.type />
       <param.support.packages />
-      <param.web.mcr />
-      <param.package.mcr />
       <param.no.mcr />
       <param.no.mcr.name />
       <param.native.matlab />
