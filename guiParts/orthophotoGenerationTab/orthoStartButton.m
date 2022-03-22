@@ -49,6 +49,13 @@ for k=3:length(L);
 %% Load Image
 I=imread(fullfile(fdir,fname,L(k).name));
 
+
+%% Determine Stabilization Method
+if strcmp(variableCamSolutionMeta.method,'FAST')==1;
+    disp('unwarped')
+I = imwarp(I, TFORM(k-2), 'OutputView', imref2d(size(I)));
+end
+
 %% Rectify Local Image
 
 localExtrinsics = localTransformExtrinsics(localOrigin,localAngle,1,extrinsicsVariable(k-2,:));

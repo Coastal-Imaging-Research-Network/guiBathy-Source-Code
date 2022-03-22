@@ -71,8 +71,8 @@ subxy = xy(idUse(pick),:);
 minNPix = 16;       % require at least this many pixels
 validTile = 0;         % default
 if length(idUse(pick)) >= minNPix
-    minSpanx = 4;          % require at least this timex dxm x coverage
-    minSpany = 4;          % require at least this timex dym y coverage
+    minSpanx = 2;          % require at least this timex dxm x coverage
+    minSpany = 2;          % require at least this timex dym y coverage
     spanx = max(subxy(:,1))-min(subxy(:,1));
     spany = max(subxy(:,2))-min(subxy(:,2));
     if ((spanx >= minSpanx) && (spany >= minSpany))
@@ -107,10 +107,9 @@ else        % try to find solutions
     for i = 1: length(fs)
         indf = coh2Sortid(i);
         C = squeeze(CAll(:,:,indf));   % pos 2nd leads 1st.
-        % [v,d] = eigs(C);    % this finds largest 6 eigs, faster than finding all
-        [v,d] = eigs(C,1);    % this finds the largest eigs only
-        lam1Norms(i) = real(d(1));  % automatic ratio to uniform eigenvalues
-        v = v(:,1);           % chose only dominant EOF
+        [v,d] = eigs(C,1);    % find only the first eig.
+        lam1Norms(i) = real(d);
+        
 %% 3.  find the seeds for the nonlinear search
         [kAlpha0(i,:), centerInds(i)] = findKAlphaSeed(subxy,v, xm, ym);
 
@@ -123,8 +122,8 @@ else        % try to find solutions
          &    (subxy(:,2) <= ym+LyTemp) );
         validTile = 0;      % default
         if length(idUse) >= minNPix
-            spanx = max(subxy(idUse,1))-min(subxy(idUse,1));
-            spany = max(subxy(idUse,2))-min(subxy(idUse,2));
+            spanx = max(subxy(:,1))-min(subxy(:,1));
+            spany = max(subxy(:,2))-min(subxy(:,2));
             if ((spanx >= minSpanx) && (spany >= minSpany))
                 validTile = 1;
             end
@@ -132,14 +131,17 @@ else        % try to find solutions
         if validTile
             subvs{i} = v(idUse);
             subXY{i} = subxy(idUse,:);
-%% finally, check if we need to decimate down to maxNPix then re-do seeds
+%% finally, check if we need to decimate down to maxNPix
             del = max(1, length(idUse)/maxNPix);
             if del>1
                 inds = round(1: del: length(subvs{i}));
                 subvs{i} = subvs{i}(inds);
                 subXY{i} = subXY{i}(inds,:);
             end
-            [kAlpha0(i,:), centerInds(i)] = findKAlphaSeed(subXY{i},subvs{i}, xm, ym);
+            % re-center with fewer pixels
+            xy = subXY{i};
+            d = sqrt((xy(:,1) - xm).^2 + (xy(:,2)-ym).^2);
+            [~,centerInds(i)] = min(d);
         else
         	fs(i) = nan;
             subvs{i} = [];

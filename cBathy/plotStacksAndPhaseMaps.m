@@ -10,7 +10,7 @@ function plotStacksAndPhaseMaps(xyz,t,data,f,G, params)
 
 %%
 
-%t = t(:,1);
+t = t(:,1);
 tm = epoch2Matlab(t);
 
 % begin plots
@@ -25,12 +25,12 @@ xlabel('x (m)'); ylabel('y (m)'); title('longshore transect')
 
 subplot 223
 imagesc(xyz(xInd,1),tm,data(:,xInd))
-datetick('y','keeplimits')
+datetick('y')
 xlabel('x (m)'); ylabel('time (s)'); title('x-transect')
 
 subplot 224
 imagesc(xyz(yInd,2),tm,data(:,yInd))
-datetick('y','keeplimits')
+datetick('y')
 xlabel('y (m)'); ylabel('time (s)'); title('y-transect')
 
 % now do phase maps.  Leave in natural order of freqs for simplicity

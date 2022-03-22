@@ -1,5 +1,5 @@
 function gcpSolveButton(app)
-global gcuxdir idir twoSave_initialIOEO 
+global gcuxdir idir twoSave_initialIOEO ioeoflag
 %% Grab Value
 gcname=app.ListBox_3.Value;
 
@@ -51,16 +51,51 @@ z=[gcp(gcpInd).z];
 xyz = [x' y' z'];  % N x 3 matrix with rows= N gcps, columns= x,y,z
 UVd=reshape([gcp(gcpInd).UVd],2,length(x))'; % N x 2 matrix with rows=gcps, columns= U,V
 
+%% Choose if IOEO Is solved for Or not
+
 
 %  Function extrinsicsolver will solve for the unknown extrinsics EO as well as
 %  provide error estimates for each value. Function extrinsicsSolver requires the
 %  function xyzToDistUV, which requires intrinsicsExtrinsics2P and distortUV.
+
+if ioeoflag==0
 try
 [extrinsics extrinsicsError]= extrinsicsSolver(extrinsicsInitialGuess,extrinsicsKnownsFlag,intrinsics,UVd,xyz);
-erFlag==0;
+erFlag=0;
 catch
     erFlag=1; %flag to turn lamp red if function doesnt work
 end
+end
+
+
+if ioeoflag==1
+try
+ IOEOInitialguess(1:6)=extrinsicsInitialGuess;
+ IOEOInitialguess(7)=str2num(app.FocalLengthEditField.Value);
+ focalLengthIntialGuess=app.FocalLengthEditField.Value;
+ focalLengthKnownFlag=app.CheckBox_9.Value;
+ IOEOKnownFlag(1:6)=extrinsicsKnownsFlag;
+ IOEOKnownFlag(7)=app.CheckBox_9.Value;
+ 
+ 
+[IOEO IOEOError]= IOEOSolver(IOEOInitialguess,IOEOKnownFlag,intrinsics,UVd,xyz);
+erFlag=0;
+
+
+% OutPut
+extrinsics(1:6)=IOEO(1:6);
+intrinsics(5:6)=IOEO(7);
+solvedFocalLength=IOEO(7);
+focalLengthError=IOEOError(7);
+extrinsicsError=IOEOError(1:6);
+
+catch
+    erFlag=1 %flag to turn lamp red if function doesnt work
+end
+end
+
+
+
 
 %% Display the results in Table
 for k=1:6
@@ -71,6 +106,11 @@ if k>3
     app.UITable7.Data{k,2}=rad2deg(extrinsics(k));
 app.UITable7.Data{k,3}=rad2deg(extrinsicsError(k));
 end
+end
+
+if ioeoflag==1
+    app.UITable7.Data{7,2}=solvedFocalLength;
+        app.UITable7.Data{7,3}=focalLengthError;
 end
 
 
@@ -159,7 +199,15 @@ initialCamSolutionMeta.worldCoordSysH=gcp(1).hDatum;
 initialCamSolutionMeta.worldCoordSysV=gcp(1).vDatum;
 initialCamSolutionMeta.worldCoordSysUnits=gcp(1).units;
 initialCamSolutionMeta.frameSet=gcp(1).frameSet;
+initialCamSolutionMeta.intrinsicsMethod='Calibrated';
 
+if ioeoflag==1
+initialCamSolutionMeta.focalLengthIntialGuess=focalLengthIntialGuess;
+initialCamSolutionMeta.focalLengthKnownFlag= focalLengthKnownFlag;
+initialCamSolutionMeta.solvedFocalLength=solvedFocalLength;
+initialCamSolutionMeta.intrinsicsMethod='SolvedWithNoDistortion';
+initialCamSolutionMeta.focalLengthError=focalLengthError;
+end
 
 twoSave_initialIOEO.initialCamSolutionMeta=initialCamSolutionMeta;
 

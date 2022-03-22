@@ -4,7 +4,7 @@ global bathytran bathytran_2
 
 %% Start Making Parameters File--> Stuff that is Pre-programmed
 params.tideFunction = 'cBathyTide'; % tide level function for evel...I dont think this is working???
-params.QTOL = 0.5; % reject skill below this in csm
+params.QTOL = 0.35; % reject skill below this in csm
 params.minLam = 10; % min normalized eigenvalue to proceed
 
 params.DECIMATE = 0; % decimate pixels to reduce work load.
@@ -79,9 +79,9 @@ end
  bathy.params=params;
  epoch=bathytran.t;
  bathy.epoch=epoch;
- cam=bathytran.xyz.*0+1;
+ cam=bathytran.xyz(:,1).*0+1;
  
-
+bathy.params
 
 % Run Bathy
 bathy = analyzeBathyCollect(bathytran.xyz, epoch, bathytran.data,cam, bathy);

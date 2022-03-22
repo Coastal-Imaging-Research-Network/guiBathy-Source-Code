@@ -19,14 +19,30 @@ cBathyPlotTran.errMsk=dplot./dplot;
 if app.XSmoothingDistanceEditField.Value>1
     xspan=app.XSmoothingDistanceEditField.Value/(cBathyPlotTran.bathy.xm(end)-cBathyPlotTran.bathy.xm(1));
     for k=1:length(cBathyPlotTran.bathy.ym)
+        
+        % Find Las non zero value
+        gind=find(isnan(dplot(k,:))==0);
+        iss=[min(gind):max(gind)];
+        
         dplot(k,:)=smooth(dplot(k,:),xspan);
+        dplot(k,iss)=dplot(k,iss);
+         noiss = setdiff(1:length(dplot(k,:)),iss);
+        dplot(k,noiss)=nan;
     end
 end
 
 if app.YSmoothingDistanceEditField.Value>1
     yspan=app.YSmoothingDistanceEditField.Value/(cBathyPlotTran.bathy.ym(end)-cBathyPlotTran.bathy.ym(1));
     for k=1:length(cBathyPlotTran.bathy.xm)
+        
+        gind=find(isnan(dplot(:,k))==0);
+        iss=[min(gind):max(gind)];
+        
         dplot(:,k)=smooth(dplot(:,k),yspan);
+        dplot(iss,k)=dplot(iss,k);
+             noiss = setdiff(1:length(dplot(:,k)),iss);
+        dplot(noiss,k)=nan;
+        
     end
 end
 

@@ -1,7 +1,7 @@
 function  clickGCPsFrameChoose(app)
 global fdir UVdClick
 %% Clearing
-app.UIAxes_5.cla
+cla(app.UIAxes_5)
 
 %% Grab Value
 fname=app.ListBox.Value;

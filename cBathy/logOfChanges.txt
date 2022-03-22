@@ -1,6 +1,0 @@
-07/31/19 - analyzeBathyCollect
-	   - added tic at the top and bathy.cpuTime = toc to record cpuTime
-	 - findKAlphaSeed
-	   - changed dxy = 4 from 2, to increase speed.
- 
-

@@ -23,6 +23,15 @@ function [fDependent, camUsed] = ...
 %       - kEst aEst hEst - errors in wavenumber, direction and depth
 %       - skill dof, - skill and degrees of freedom
 
+% 03/07/10 - Holman fix to catch edge error where a tomographic point
+%   an extrapolation region can get poor estimates with low error
+%   because only a very few pixels are fit well.  Fix is to require
+%   nGood pixels (likely > 3) and to have max(deltax) and max(deltay)
+%   at least wavelengthFraction of the expected wavelength.
+% 09/01/11 - Holman rewrite to finally get rid of tiling and analyze a
+%   single location only
+% 12/05/11 - Holman major change to base on EOFs rather than direct from CSM
+
 % 05/22/17 - Holman major change to dynamic tile size (based on fB) and new
 %               seed based on initial guess at bathy, bathy.h0
 % 07/24/19 - major changes including better implementation of dynamic tile
@@ -35,10 +44,11 @@ global callCount            % keep track of number of calls to predictCSM
 global centerInd            % index of pixel closest to xm, ym for phase corr.
 global v                    % dominant eigenvector at each f
 % set up nonlinear solver parameters.
+
 OPTIONS = statset('nlinfit');   % fit options
 OPTIONS.MaxIter = 50;
 OPTIONS.TolFun = 1e-5;      % previous version used 1e-6
-% OPTIONS.Display = 'off';  % only for debugging search
+%OPTIONS.Display = 'iter';  % only for debugging search
 warning off
 
 clear fDependent
@@ -92,7 +102,7 @@ for i = 1:length(fs)         % frequency loop
         dxmi = xy(:,1) - repmat(xm, Nxy, 1);
         dymi = xy(:,2) - repmat(ym, Nxy, 1);
         r = sqrt((dxmi/(bathy.params.Lx)).^2 + (dymi/(bathy.params.Ly)).^2);
-        Wmi = interp1(ri,ai,r,'linear*',0);  % sample normalized weights
+        Wmi = interp1(ri,ai,r,'linear',0);  % sample normalized weights
         w = abs(v).*Wmi;           % final weights for fitting.
 
         % find span of data in x and y to determine if sufficient
@@ -103,8 +113,9 @@ for i = 1:length(fs)         % frequency loop
         if ~(lam1Norm>bathy.params.minLam) 
             kAlpha = [nan nan];  % no, so bail
             ex = kAlpha;
+
             skill = nan;
-%             figure(i); clf
+            figure(i); clf
         else
             try            % yes, do solution
                 % prepare nlinfit params and do nonlinear fit on surviving data.
@@ -114,8 +125,18 @@ for i = 1:length(fs)         % frequency loop
                 OPTIONS.TolX = min([kmin/100, pi/180/10]);  % change from /1000 to /100
                 statset(OPTIONS);
                 callCount = 0;      % count calls to predictCSM
-                [kAlpha,resid,jacob] = nlinfit([xy w], [real(v); imag(v)],...
-                               'predictCSM',kAlphaInit, OPTIONS);
+%                 [kAlpha,resid,jacob] = nlinfit([xy w], [real(v); imag(v)],...
+%                     'predictCSM',kAlphaInit, OPTIONS);
+                
+                if  bathy.params.nlinfit == 1 % use nlinfit
+                    [kAlpha,resid,jacob] = nlinfit([xy w], [real(v); imag(v)],...
+                        'predictCSM',kAlphaInit, OPTIONS);
+                elseif  bathy.params.nlinfit == 0 % if stats toolbox is no available, set the nlinfit flag to 0
+                    [kAlpha,~,~, ~, ~,A,resid] = LMFnlsq('res',kAlphaInit,...
+                        [xy w], [real(v); imag(v)], 'Display',0);
+                    kAlpha = kAlpha';
+                end
+                           
                 nCalls = callCount;     % record number of f-calls
 
                 % check if outside acceptable limits
@@ -137,9 +158,20 @@ for i = 1:length(fs)         % frequency loop
                     fprintf('frequency %d of %d, normalized lambda %.1f\n  ', ...
                                 i, bathy.params.nKeep,lam1Norm)
                 end
+                
                 % get confidence limits
-                ex = nlparci(real(0*kAlpha),resid,jacob); % get limits not bounds
-                ex = real(ex(:,2)); % get limit, not bounds
+                if bathy.params.nlinfit == 1 % use the stats toolbox 
+                    ex = nlparci(real(0*kAlpha),resid,jacob); % get limits not bounds
+                    ex = real(ex(:,2)); % get limit, not bounds
+                elseif bathy.params.nlinfit == 0 % no-stats toolbox
+                    DOF = size(v,1)*2-size(kAlpha,2); % degrees of freedom
+                    rmse = norm(resid) / sqrt(DOF);
+                    %ex = sigma_p*tstat3( DOF, 1-0.025, 'inv' );
+                    ex = rmse*sqrt(diag(inv(A)))*tstat3( DOF, 1-0.025, 'inv' );
+                end
+                
+                
+                
             catch   % nlinfit failed with fatal errors, adding bogus
                 kAlpha = [nan nan];
                 ex = kAlpha;

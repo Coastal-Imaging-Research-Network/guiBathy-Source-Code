@@ -35,8 +35,9 @@ solList{3,1}='Z';
 solList{4,1}='Azimuth';
 solList{5,1}='Tilt';
 solList{6,1}='Swing';
+solList{7,1}='Focal Length';
 
-for k=1:6
+for k=1:7
     solList{k,2}='';
     solList{k,3}='';
 end

@@ -9,6 +9,7 @@ intrinsics=twoSave_variableIOEO.intrinsics;
 initialCamSolutionMeta=twoSave_variableIOEO.initialCamSolutionMeta;
 variableCamSolutionMeta=twoSave_variableIOEO.variableCamSolutionMeta;
 t=twoSave_variableIOEO.t;
+variableCamSolutionMeta.method='SCP';
 
 save( fullfile(vedir, veoname),'extrinsicsVariable','intrinsics','initialCamSolutionMeta','variableCamSolutionMeta','t');
 

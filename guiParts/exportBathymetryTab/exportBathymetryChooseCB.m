@@ -145,10 +145,10 @@ app.Slider.Limits=[0 10];
 app.Slider.Value=0;
 
 
-app.Slider_2.Limits=[0 100];
+app.Slider_2.Limits=[0 300];
 app.Slider_2.Value=0;
 
-app.Slider_3.Limits=[0 100];
+app.Slider_3.Limits=[0 300];
 app.Slider_3.Value=0;
 
 app.MaximumErrorEditField.Value=0;

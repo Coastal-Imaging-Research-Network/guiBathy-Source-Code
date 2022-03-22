@@ -66,6 +66,8 @@ end
 %% Plot Image
 imagesc(localX(1,1:rmult:end),localY(1:rmult:end,1),Iready,'parent',app.UIAxes_13)
 colormap(app.UIAxes_13,'gray')
-xlim(app.UIAxes_13, [min(min(localX)) max(max(localX))])
-ylim(app.UIAxes_13, [min(min(localY)) max(max(localY))])
 set(app.UIAxes_13,'ydir','normal')
+axis(app.UIAxes_13,'equal')
+ xlim(app.UIAxes_13, [min(min(localX)) max(max(localX))])
+ylim(app.UIAxes_13, [min(min(localY)) max(max(localY))])
+app.UIAxes_13.XTick=[min(min(localX)): nanmean(diff(app.UIAxes_13.YTick)):max(max(localX))]; %weird bug- not sure why it does this 

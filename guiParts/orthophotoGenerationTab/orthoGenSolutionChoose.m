@@ -12,11 +12,14 @@ load(fullfile(vedir,vsol));
  
 L=dir(gdir);
 app.ListBox_12.Items={}; 
+count=0;
 for k=3:length(L)
     
 load(fullfile(gdir,L(k).name));
     if (strcmp(initialCamSolutionMeta.worldCoordSysH,worldCoordSysH)==1) & (strcmp(initialCamSolutionMeta.worldCoordSysV,worldCoordSysV)==1)  & (strcmp(initialCamSolutionMeta.worldCoordSysUnits,worldCoordSysUnits)==1)
-    app.ListBox_12.Items{k-2}=L(k).name;
+    count=count+1;
+        app.ListBox_12.Items{count}=L(k).name;
+    
     end
 end
 

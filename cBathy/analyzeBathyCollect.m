@@ -1,5 +1,4 @@
 function bathy = analyzeBathyCollect(xyz, epoch, data, cam, bathy)
-
 %%
 %
 %  bathy = analyzeBathyCollect(xyz, epoch, data, cam, bathy);
@@ -17,19 +16,12 @@ function bathy = analyzeBathyCollect(xyz, epoch, data, cam, bathy)
 %  NOTE - we assume a coordinate system with x oriented offshore for
 %  simplicity.  If you use a different system, rotate your data to this
 %  system prior for analysis then un-rotate after.
-%
-% Inputs: 
-%   xyz -- xyz coordinates of the grid (z is typically all 0's
-%   epoch -- time of each frame in *seconds*
-%   data  -- image data for each time and each xyz (this is the data stack)
-%   cam   -- camera index of each pixel (in the single camera case, this
-%            should be an array of all 1's that is length(xyz) x 1
-%   bathy -- this is the parameter list from the inputs file
 
-
+tic 			% to record the CPUTime
 % record version
 myVer = cBathyVersion();
 bathy.ver = myVer;
+bathy.matVer = version;
 if isempty(ver('stats'))        % forced to use local LMFit if no stats toolbox
     bathy.params.nlinfit = 0;
 end
@@ -43,14 +35,21 @@ if( cBDebug( bathy.params, 'DOPLOTSTACKANDPHASEMAPS' ) )
     close(10); close(11);
 end
 
-% create and save a time exposure
+% create and save a time exposure, brightest and darkest.
+data = double(data);
 IBar = mean(data);
+IBright = max(data);
+IDark = min(data);
 xy = bathy.params.xyMinMax;
 dxy = [bathy.params.dxm bathy.params.dym];
 pa = [xy(1) dxy(1) xy(2) xy(3) dxy(2) xy(4)];  % create the pixel array
 [xm,ym,map, wt] = findInterpMap(xyz, pa, []);
 timex = useInterpMap(IBar,map,wt);
 bathy.timex = reshape(timex,length(ym), length(xm));
+bright = useInterpMap(IBright,map,wt);
+bathy.bright = reshape(bright,length(ym), length(xm));
+dark = useInterpMap(IDark,map,wt);
+bathy.dark = reshape(dark,length(ym), length(xm));
 
 %% now loop through all x's and y's
 
@@ -61,31 +60,40 @@ if( cBDebug( bathy.params, 'DOSHOWPROGRESS' ))
     title('Analysis Progress'); drawnow;
     hold on
 end
-% str = [bathy.sName(16:21) ', ' bathy.sName(36:39) ', ' bathy.sName([23 24 26 27])];
-%if cBDebug( bathy.params )
-	hWait = waitbar(0, 'cBathy Processing Progress');
-%end;
+
+% if cBDebug( bathy.params )
+	hWait = waitbar(0, 'percentage complete');
+% end
 
 % turn off warnings
-    warning('off', 'stats:nlinfit:IterationLimitExceeded')
-    warning('off', 'stats:nlinfit:RankDeficient')
+warning('off', 'stats:nlinfit:IterationLimitExceeded')
+warning('off', 'stats:nlinfit:RankDeficient')
+
+% check for the stats toolbox
+if isempty(ver('stats'))
+    bathy.params.nlinfit=0;
+end
 
 for xind = 1:length(bathy.xm)
-    disp(['transect ' num2str(xind) '/' num2str(length(bathy.xm)) 'at ' datestr(now)])
 %    if cBDebug( bathy.params )
 	    waitbar(xind/length(bathy.xm), hWait)
-%    end;
-    fDep = {};  %% local array of fDependent returns
-    
+        
+%    end
+    fDep = cell(1,length(bathy.ym));  %% Initialization of fDep yb D.S.
+    camUsed = zeros(length(bathy.ym),1);
+
     if( cBDebug( bathy.params, 'DOSHOWPROGRESS' ))
         for yind = 1:length(bathy.ym)
             [fDep{yind},camUsed(yind)] = csmInvertKAlpha( f, G, xyz(:,1:2), cam, ...
                 bathy.xm(xind), bathy.ym(yind), bathy );
         end
     else
+        xmValues = bathy.xm(xind);
+        xy = xyz(:,1:2);
+        ymValues = bathy.ym;
         parfor yind = 1:length(bathy.ym)
-              [fDep{yind},camUsed(yind)] = csmInvertKAlpha( f, G, xyz(:,1:2), cam, ...
-                bathy.xm(xind), bathy.ym(yind), bathy );
+            [fDep{yind},camUsed(yind)] = csmInvertKAlpha( f, G, xy, cam, ...
+                xmValues, ymValues(yind), bathy );
         end  %% parfor yind
     end
     
@@ -112,19 +120,21 @@ for xind = 1:length(bathy.xm)
     end
         
 end % xind
-%if cBDebug( bathy.params )
+% if cBDebug( bathy.params )
 	delete(hWait);
-%end;
+% end
 
 % turn warnings back on
     warning('on', 'stats:nlinfit:IterationLimitExceeded')
     warning('on', 'stats:nlinfit:RankDeficient')
 
 %% Find estimated depths and tide correct, if tide data are available.
- 
+  
 bathy = bathyFromKAlpha(bathy);
 
-%bathy = fixBathyTide(bathy);
+% bathy = fixBathyTide(bathy);
+
+bathy.cpuTime = toc;
 
 %   Copyright (C) 2017  Coastal Imaging Research Network
 %                       and Oregon State University
@@ -148,4 +158,3 @@ bathy = bathyFromKAlpha(bathy);
 %
 %key cBathy
 %
-
