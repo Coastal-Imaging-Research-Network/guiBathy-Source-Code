@@ -30,8 +30,8 @@ More information on software use and data collection requirements can be found i
     <param.user.defined.mcr.options />
     <param.target.type>subtarget.standalone</param.target.type>
     <param.support.packages />
-    <param.web.mcr>true</param.web.mcr>
-    <param.package.mcr>false</param.package.mcr>
+    <param.web.mcr>false</param.web.mcr>
+    <param.package.mcr>true</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
     <param.web.mcr.name>guibathy2installer_web</param.web.mcr.name>
     <param.package.mcr.name>guibathy2installer_mcr</param.package.mcr.name>
@@ -66,8 +66,6 @@ More information on software use and data collection requirements can be found i
       <param.user.defined.mcr.options />
       <param.target.type />
       <param.support.packages />
-      <param.web.mcr />
-      <param.package.mcr />
       <param.no.mcr />
       <param.no.mcr.name />
       <param.native.matlab />
@@ -88,7 +86,6 @@ More information on software use and data collection requirements can be found i
       <file>C:\Users\Chonkosaurus\Documents\GitHub\Copy_of_UAS-Hover-GUI\guiParts\clickGCPsTab\help_gcp.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\Copy_of_UAS-Hover-GUI\guiParts\clickGCPsTab\saveGCP.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\Copy_of_UAS-Hover-GUI\guiParts\clickGCPsTab\saveGCPXYZ.m</file>
-      <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\aerielle.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\alterAnalysisArray.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\analyzeBathyCollect.m</file>
       <file>C:\Users\Chonkosaurus\Documents\GitHub\UAS-Hover-GUI\cBathy\analyzeSingleBathyRun.m</file>

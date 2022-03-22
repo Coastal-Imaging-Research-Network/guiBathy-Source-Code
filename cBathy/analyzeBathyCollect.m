@@ -132,7 +132,6 @@ end % xind
   
 bathy = bathyFromKAlpha(bathy);
 
-% bathy = fixBathyTide(bathy);
 
 bathy.cpuTime = toc;
 
