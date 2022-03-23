@@ -18,8 +18,3 @@ sbLine.YData=pbTran.sby;
 sbLine.XData=pbTran.sbx;
 
 
-%% Change Status Lamp
-    app.Lamp_23.Color=[1 0 0];
-    if app.Lamp_24.Color==[.5 .5 .5] | app.Lamp_24.Color==[0 1 0]
-    app.Lamp_24.Color==[.5 .5 .5]
-    end

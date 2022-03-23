@@ -42,6 +42,5 @@ app.UITable12.Data{1,1}=cbathyMeta.params.dxm;
 app.UITable12.Data{1,2}=cbathyMeta.params.dym;
 
 %% REset Lamp
-app.Lamp_24.Color=[.5 .5 .5];
 app.Lamp_25.Color=[.5 .5 .5];
 app.Lamp_26.Color=[.5 .5 .5];

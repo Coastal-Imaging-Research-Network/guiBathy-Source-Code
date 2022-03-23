@@ -21,6 +21,3 @@ app.Lamp_26.Color=[.5 .5 .5];
 
 
 
-if app.Lamp_24.Color==[.5 .5 .5] | app.Lamp_24.Color==[0 1 0]
-    app.Lamp_24.Color==[.5 .5 .5]
-end

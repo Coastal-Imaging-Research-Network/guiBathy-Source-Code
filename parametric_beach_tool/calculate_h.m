@@ -115,18 +115,39 @@ for iy = 1:length(data.y)
             
             s_prime = s_off;
             h_prime = data.hoff;
-            
-            [gamma,kappa] = solve_boundary_equations(data,s_prime);
-            
+            gamma = 1.0;
+            betasave = data.beta_off;
+%             while gamma >= 0
+                [gamma,kappa] = solve_boundary_equations(data,s_prime);
+%               if gamma > 0
+%                   data.beta_off = data.beta_off - 0.0005;
+%               end
+%             end
+%             if abs(betasave - data.beta_off) > 0
+%                disp(['data.beta_off has been changed to ',num2str(data.beta_off)])
+%             end
+%             if gamma > 0
+%                 data.beta_off = data.hoff/data.xoff;
+%             end
             h0 = composite_profile_func(s,data.beta_off, gamma, kappa);
-            xdiff = 100;
-            while xdiff > 5
+            %xdiff = 500;
+            %nn = 0;
+            %xlim = 100.0;
+            %while xdiff > xlim
+            theta = phase_structure_func(s,h0,s_off);
+            
+            [~,idtemp] = min(abs(s - s_b));
+            psi = theta(idtemp);
+            coscut = cut_oscillation(theta,psi,s,idtemp,data.numbars);
+            data.hsea = h0(coscut.iddsea);
+            data.hshore = h0(coscut.iddshore);
+            
             S_exp_component_values = S_exp_component_func(h0,data.hsea);
             
             [~,idtemp] = max(S_exp_component_values);
             s_max = s(idtemp);
             
-            ss = spatial_bar_variability_func(s,h0,s_max,s_off,data.hsea);
+            ss = spatial_bar_variability_func(s,h0,s_max,s_off,data.hsea,data.hshore);
             
             [~,idtemp] = min(abs(h0 - data.hsea));
             if h0(idtemp) <= data.hsea
@@ -136,32 +157,36 @@ for iy = 1:length(data.y)
             end
             discontinuity_slope = compute_discontinuity_slope(s,ss,s_discontinuity);
             
-            exp_decay_coefficients = solve_exp_coefficients(ss,s,s_discontinuity,discontinuity_slope);
+            %%%exp_decay_coefficients = solve_exp_coefficients(ss,s,s_discontinuity,discontinuity_slope);
             
-            s_seaward_exp_decay = exp_decay_func(s,exp_decay_coefficients(1),exp_decay_coefficients(2));
+            %%%s_seaward_exp_decay = exp_decay_func(s,exp_decay_coefficients(1),exp_decay_coefficients(2));
             
-            ss(s>s_discontinuity) = s_seaward_exp_decay(s>s_discontinuity);
+            %%%ss(s>s_discontinuity) = s_seaward_exp_decay(s>s_discontinuity);
             
-            theta = phase_structure_func(s,h0,s_off);
+           % theta = phase_structure_func(s,h0,s_off);
             
-            [~,idtemp] = min(abs(s - s_b));
-            psi = theta(idtemp);
+           % [~,idtemp] = min(abs(s - s_b));
+           % psi = theta(idtemp);
+           % cosinefun = cut_oscillation(theta,psi,s,idtemp);
             
             h_barred = generate_h_barred(ss,theta,psi);
-            [~,idtemp] = min(h_barred);
-            xpeak = s(idtemp);
-            xdiff = abs(xpeak - s_b);
-            if xpeak-s_b < -5.0
-                data.hsea = data.hsea + 0.25;
-                disp(['shift hsea to ',num2str(data.hsea)])
-            elseif xpeak-s_b > 5.0
-                data.hsea = data.hsea - 0.25;
-                disp(['shift hsea to ',num2str(data.hsea)])
-            end
-            end
+%             [~,idtemp] = min(h_barred);
+%             xpeak = s(idtemp);
+%             xdiff = abs(xpeak - s_b);
+%             if xpeak-s_b < -1.0*xlim
+%                 data.hsea = data.hsea + 0.5;
+%                 disp(['shift hsea to ',num2str(data.hsea)])
+%             elseif xpeak-s_b > xlim
+%                 data.hsea = data.hsea - 0.5;
+%                 disp(['shift hsea to ',num2str(data.hsea)])
+%             end
+%             nn = nn + 1;
+%             if nn == 11
+%                 break
+%             end
+%             end
             
             barred_composite_bathymetry = h0 + h_barred;
-            
             [~,idtemp] = min(abs(s - s_p));
             data.h(iy,ix) = barred_composite_bathymetry(idtemp);
         end

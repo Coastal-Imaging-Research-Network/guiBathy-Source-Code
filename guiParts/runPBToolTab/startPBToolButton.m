@@ -20,25 +20,25 @@ yres=app.UITable12.Data{1,2};
 
 x0=pbTran.X(1,1);
 xmax=pbTran.X(1,end);
-% ymax=pbTran.Y(end,1);
-% y0=pbTran.Y(1,1);
 y0=min(slLine.YData);
 ymax=max(slLine.YData);
 
 
-hsea=abs(app.UITable11.Data{1,2});
-xoff=app.EditField_2.Value;
 hoff=abs(app.UITable11.Data{1,1});
-
+xoff=abs(app.UITable11.Data{1,2});
 beta_offshore=abs(app.UITable11.Data{1,3});
 beta_shoreline=abs(app.UITable11.Data{1,4});
+numbars=abs(app.UITable11.Data{1,5});
 
+% Put In Base Value
+hsea=2;
+hshore = 0;
 
 input = struct('xres',xres.*fc,'yres',yres.*fc,'hsea',hsea.*fc, ...
     'xoff',xoff.*fc,'hoff',hoff.*fc,'beta_offshore', ...
     beta_offshore,'beta_shoreline',beta_shoreline, ...
     'x0',x0.*fc,'xmax',xmax.*fc,'y0',y0.*fc,'ymax', ...
-    ymax.*fc,'feature_res',feature_res.*fc,'tide',pbTran.tide*fc);
+    ymax.*fc,'feature_res',feature_res.*fc,'tide',pbTran.tide*fc,'numbars',numbars,'hshore',hshore);
 
 input.bar=[sbLine.XData(:), sbLine.YData(:)].*fc;
 input.shoreline=[slLine.XData(:), slLine.YData(:)].*fc;

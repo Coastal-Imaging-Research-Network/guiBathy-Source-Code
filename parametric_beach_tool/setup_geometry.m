@@ -1,6 +1,6 @@
 function data = setup_geometry(data)
 
-data.x = data.x0:data.xres:data.xoff;
+data.x = data.x0:data.xres:data.xmax;%data.xoff;
 data.y = data.y0:data.yres:data.ymax;
 
 %dy = 

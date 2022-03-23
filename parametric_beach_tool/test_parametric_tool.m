@@ -2,7 +2,7 @@
 clear all
 tic
 load('standardparsm.mat');
-input = pbData;
+input = pbMeta.input;
 %temp = pbData;
 %input = struct('xres',5,'yres',20,'hsea',4.5, ...
 %    'xoff',700,'hoff',7.5,'beta_off', ...
@@ -15,10 +15,24 @@ input = pbData;
 %input.shoreline = pbData.shoreline;
 %input.shoreline(:,1) = input.shoreline(:,1) + 40;
 %input.hoff = 10.0;
-%input.xoff = 1096;
+%input.xoff = 1800;
+%input.hoff = 17.0;
+%input.hoff = 11.0;
+%input.xoff = 2000;
+%input.xoff = 4000;
+
+%input.hoff = 12.5;
+%input.xoff = 1500;
+%input.beta_offshore = 0.006;
+%input.beta_shoreline = 0.04;
 %input.hsea = 6.0;
 input.feature_res = 1.0;
+input.numbars = 1;
+input.hshore = 1.5;
+input.hoff = 7.7;
+input.xoff = 750;
 %input.tide = 1.0;
+input.xmax = 750;
 
 %input.hsea = 5.0;
 % input.bar = [179.8014956225681, -454.99141006638047;
@@ -77,19 +91,19 @@ data = run_parametric(input);
 
 survey = read_survey_lines('FRF_20200805_1189_FRF_NAVD88_LARC_GPS_UTC_v20200807.xls');
 
-figure(1) 
-h = pcolor(data.x,data.y,data.h*-1.0);
-set(h,'edgecolor','none')
-xlabel('Cross-shore distance (m)')
-ylabel('Along-shore distance (m)')
-colorbar
+% figure(1) 
+% h = pcolor(data.x,data.y,data.h*-1.0);
+% set(h,'edgecolor','none')
+% xlabel('Cross-shore distance (m)')
+% ylabel('Along-shore distance (m)')
+% colorbar
 
-figure(2)
-h = pcolor(survey.x,survey.y,survey.elev);
-set(h,'edgecolor','none')
-xlabel('Cross-shore distance (m)')
-ylabel('Along-shore distance (m)')
-colorbar
+% figure(2)
+% h = pcolor(survey.x,survey.y,survey.elev);
+% set(h,'edgecolor','none')
+% xlabel('Cross-shore distance (m)')
+% ylabel('Along-shore distance (m)')
+% colorbar
 
 % figure(2)
 % hold on
@@ -100,15 +114,15 @@ colorbar
 % ylabel('Elevation (m)')
 % hold off
 
-[~,idy] = min(abs(data.y - 900));
-[~,idg] = min(abs(survey.x - 900));
+[~,idy] = min(abs(data.y - 1000));
+[~,idg] = min(abs(survey.x - 1000));
 figure(3)
 hold on
 plot(data.x,data.h(idy,:)*-1.0)
 plot(survey.x,survey.elev(idg,:),'k')
 xlabel('Cross-shore distance (m)')
 ylabel('Elevation (m)')
-xlim([0,1000])
+xlim([0,3000])
 legend({'PBT','Survey'})
 hold off
 

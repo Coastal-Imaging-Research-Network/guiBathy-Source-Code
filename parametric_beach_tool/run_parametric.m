@@ -4,11 +4,11 @@ function [data] = run_parametric(input)
 
 disp("intialize the model with input")
 data = initializeParametric(input.shoreline,input.bar, ...
-    'xres',input.xres,'yres',input.yres,'hsea',input.hsea, ...
+    'xres',input.xres,'yres',input.yres,'hsea',input.hsea,'hshore',input.hshore, ...
     'xoff',input.xoff,'hoff',input.hoff,'beta_offshore', ...
     input.beta_offshore,'beta_shoreline',input.beta_shoreline, ...
     'x0',input.x0,'xmax',input.xmax,'y0',input.y0,'ymax', ...
-    input.ymax,'feature_res',input.feature_res,'tide',input.tide);
+    input.ymax,'feature_res',input.feature_res,'tide',input.tide,'numbars',input.numbars);
 
 disp("setup geometry")
 data = setup_geometry(data);
@@ -18,6 +18,10 @@ data = calculate_h(data);
 
 
 %% Brittanys Quick Tide Fix
+bind=find(data.h==0);
+data.h(bind)=nan;
+
+
 % % If a Negative Tide
 % if input.tide<0
 % bind=find(-data.h>input.tide.*.75); %give wiggle room  

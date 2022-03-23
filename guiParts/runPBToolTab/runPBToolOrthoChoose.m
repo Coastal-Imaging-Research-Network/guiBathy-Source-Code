@@ -74,10 +74,7 @@ ylim(app.UIAxes_15,[min(min(localY)) max(max(localY))])
 set(app.UIAxes_15,'ydir','normal')
 
 
-%% Initial Guess for Cross shore Coordinates
-xE=localX(1,end)-localX(1,1);
-app.EditField_2.Value= localX(1,1)+.95*xE;
-app.EditField_4.Value= localX(1,1)+.65*xE;
+
 
 %% Initial Guess for Desired Resolution
 app.UITable12.Data{1,1}=nanmean(diff(localX(1,:)))*5;
@@ -90,13 +87,6 @@ app.ListBox_29.Value={};
 cbpcolor=pcolor(pblocalX,pblocalY,pblocalX.*nan,'parent',app.UIAxes_15);
 cbpcolor.EdgeColor='none';
 
-%% Plot Initial Guess
-
-oxline=plot([app.EditField_2.Value app.EditField_2.Value],[min(localY(:,1)) max(localY(:,1))],'r','linewidth',2,'parent',app.UIAxes_15);
-oxtext=text(app.EditField_2.Value, max(localY(:,1)), 'Offshore ','HorizontalAlignment','right','VerticalAlignment','Top','parent',app.UIAxes_15,'Color','r','Fontweight','bold','FontSize',14);;
-
-bsxline=plot([app.EditField_4.Value app.EditField_4.Value],[min(localY(:,1)) max(localY(:,1))],'b','linewidth',2,'parent',app.UIAxes_15);
-bsxtext=text(app.EditField_4.Value, max(localY(:,1)), 'Bar Seaward ','HorizontalAlignment','right','VerticalAlignment','Top','parent',app.UIAxes_15,'Color','b','Fontweight','bold','FontSize',14);;
 
 %% Plot Dummy Shorelines
 slLine=plot(nan,nan,'m-*','linewidth',1,'color','m','parent',app.UIAxes_15);
@@ -116,8 +106,6 @@ pbTran.sby=[];
 pbTran.I=I;
 pbTran.X=localX;
 pbTran.Y=localY;
-pbTran.ox=app.EditField_2.Value;
-pbTran.bsx=app.EditField_4.Value;
 pbTran.Units=initialCamSolutionMeta.worldCoordSysUnits;
 pbTran.worldCoordSysH=initialCamSolutionMeta.worldCoordSysH;
 pbTran.worldCoordSysV=initialCamSolutionMeta.worldCoordSysV;
@@ -128,11 +116,9 @@ pbTran.mwlElevation=nanmean(nanmean(localZ));
 app.FilenameEditField_12.Value=strcat(app.ListBox_28.Value,'_PBTool');
 
 %% Units
-app.Label_334.Text=['[' pbTran.Units ']'];
-app.Label_335.Text=['[' pbTran.Units ']'];
 
-app.UITable11.ColumnName{1}=['Offshore Depth' ' ' '[' pbTran.Units ']'];
-app.UITable11.ColumnName{2}=['Bar Seaward Depth' ' ' '[' pbTran.Units ']'];
+app.UITable11.ColumnName{1}=['Depth of Closure (DoC)' ' ' '[' pbTran.Units ']'];
+app.UITable11.ColumnName{2}=['X Dist of DoC' ' ' '[' pbTran.Units ']'];
 app.UITable11.ColumnName{3}=['Offshore Slope' ' ' '[' pbTran.Units '/' pbTran.Units  ']'];
 app.UITable11.ColumnName{4}=['Onshore Slope' ' ' '[' pbTran.Units '/' pbTran.Units  ']'];
 
@@ -146,11 +132,10 @@ app.YmaxLabel.Text=['Y max [' pbTran.Units ']'];
 
 %% Change Lamps
     app.Lamp_23.Color=[.5 .5 .5];
-app.Lamp_22.Color=[.5 .5 .5];
+    app.Lamp_22.Color=[.5 .5 .5];
     app.Lamp_28.Color=[1 0 0];
     app.Lamp_25.Color=[.5 .5 .5];
     app.Lamp_26.Color=[.5 .5 .5];
-    app.Lamp_24.Color==[1 0 0];
  
     
     %% Add Default Values for Cbathy Estimation (necessary to enter values
@@ -158,4 +143,5 @@ app.Lamp_22.Color=[.5 .5 .5];
         app.UITable11.Data{1,2}=0;
     app.UITable11.Data{1,3}=0;
     app.UITable11.Data{1,4}=0;
+    app.UITable11.Data{1,5}=1;
 end
