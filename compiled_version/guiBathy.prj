@@ -2,7 +2,12 @@
   <configuration build-checksum="197200023" file="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\compiled_version\guiBathy.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\compiled_version" name="guiBathy" preferred-package-location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>guiBathy</param.appname>
     <param.icon>${PROJECT_ROOT}\guiBathy_resources\icon.ico</param.icon>
-    <param.icons />
+    <param.icons>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_16.png</file>
+    </param.icons>
     <param.version>2.0</param.version>
     <param.authnamewatermark />
     <param.email />
@@ -27,7 +32,7 @@
     <param.web.mcr>true</param.web.mcr>
     <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
-    <param.web.mcr.name>guiBathy_web</param.web.mcr.name>
+    <param.web.mcr.name>guiBathy_with_runtime_installer</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.windows.command.prompt>true</param.windows.command.prompt>
@@ -41,11 +46,8 @@
 	 
  Input Arguments 
 	 -?  print help on how to use the application 
-	 input arguments 
- Description 
- 	 guiBathy provides an end-to-end solution for non subject-matter-experts to utilize commercial-off-the-shelf UAS to collect quantitative imagery of the nearshore by packaging robust photogrammetric and signal-processing algorithms into an easy to use software interface. More information on software use and data collection requirements can be found in the ERDC-CHL Technical Report: guiBathy: A Graphical User Interface to Estimate Nearshore Bathymetry from Hovering Unmanned Aerial System Imagery.</param.help.text>
+	 input arguments</param.help.text>
     <unset>
-      <param.icons />
       <param.authnamewatermark />
       <param.email />
       <param.company />
