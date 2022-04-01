@@ -23,7 +23,10 @@ NOTE: You will need administrator rights to run the MATLAB Runtime installer. Al
 
 
 NOTE: To run guibathy.exe you will need the MATLAB 2020b Runtime v9.9 installed regardless if a licensed version of MATLAB is installed.
-If you prefer not to run the .exe, use options 1-2. However this requires licenses and toolboxe
+If you prefer not to run the .exe, use options 1-2. However this requires licenses and toolboxes. 
+
+NOTE: In order to run properly, your computer display refresh rate must be ~60Hz. Can be changed via Settings->Display->Advanced Display Settings -->Refresh Rate.
+
 
 For use, please cite:
 Bruder, B. L., Brodie, K. L., Hesser, T. J., Spore, N. J., Farthing, M. W., Geheran, M. P., & Renaud, A. D. (2021). guiBathy: A Graphical 
