@@ -17,6 +17,9 @@ ang=90-rad2deg(extrinsicsVariable(1,4));
 if ang<0
     ang=360+ang;
 end
+if ang>360
+    ang=ang-360;
+end
 app.AngledegEditField.Value=num2str(ang);
 app.RotationSlider.Value=(ang);
 

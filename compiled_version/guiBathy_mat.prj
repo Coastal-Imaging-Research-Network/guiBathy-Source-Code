@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1829190114" file="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy_mat.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code" name="guiBathy_mat" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1829190114" file="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\compiled_version\guiBathy_mat.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\compiled_version" name="guiBathy_mat" target="target.mlapps" target-name="Package App">
     <param.appname>guiBathy_mat</param.appname>
     <param.authnamewatermark />
     <param.email />
@@ -8,7 +8,7 @@
     <param.icons />
     <param.summary>guiBathy is an easy to use GUI designed to obtain bathymetry estimates from hovering UAS videos of the nearshore environment.</param.summary>
     <param.description>guiBathy provides an end-to-end solution for non subject-matter-experts to utilize commercial-off-the-shelf UAS to collect quantitative imagery of the nearshore by packaging robust photogrammetric and signal-processing algorithms into an easy to use software interface. More information on software use and data collection requirements can be found in the ERDC-CHL Technical Report: guiBathy: A Graphical User Interface to Estimate Nearshore Bathymetry from Hovering Unmanned Aerial System Imagery.</param.description>
-    <param.screenshot>${PROJECT_ROOT}\guiParts\helpFigures\splash2.png</param.screenshot>
+    <param.screenshot />
     <param.version>1.0</param.version>
     <param.products.name>
       <item>Computer Vision Toolbox</item>
@@ -34,6 +34,7 @@
       <param.company />
       <param.icon />
       <param.icons />
+      <param.screenshot />
       <param.version />
       <param.platforms />
       <param.output />
@@ -327,7 +328,7 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\Chonkosaurus\Documents\GitHub" name="guiBathy-Source-Code" optional="false">C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code</file>
+      <file location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code" name="compiled_version" optional="false">C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\compiled_version</file>
     </build-deliverables>
     <workflow />
     <matlab>
