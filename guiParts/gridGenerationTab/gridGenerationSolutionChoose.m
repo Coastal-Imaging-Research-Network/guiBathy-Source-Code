@@ -13,12 +13,16 @@ load(fullfile(vedir,vsol));
 
 %% Rotation angle
 % Set X axis to be alinged with azimuth of camera
+
 ang=90-rad2deg(extrinsicsVariable(1,4));
+
+
+
 if ang<0
-    ang=360+ang;
+    ang=mod(ang,360);
 end
 if ang>360
-    ang=ang-360;
+    ang=360-mod(ang,360);
 end
 app.AngledegEditField.Value=num2str(ang);
 app.RotationSlider.Value=(ang);
