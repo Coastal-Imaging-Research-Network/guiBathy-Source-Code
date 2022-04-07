@@ -22,6 +22,65 @@ Warning: File: C:\Users\Chonkosaurus\AppData\Local\Temp\Chonkosaurus\mcrCache9.9
 'EnterYCoordinatetoPlotCrossshoreprofilebelowEditField_3ValueChanged' exceeds the MATLAB maximum name length of 63 characters and will be truncated to 'EnterYCoordinatetoPlotCrossshoreprofilebelowEditField_3ValueCha'.
 Warning: File: C:\Users\Chonkosaurus\AppData\Local\Temp\Chonkosaurus\mcrCache9.9\guiBat0\guiBathy\uasToolbox.mlapp Line: 7133 Column: 115
 'EnterYCoordinatetoPlotCrossshoreprofilebelowEditField_4ValueChanged' exceeds the MATLAB maximum name length of 63 characters and will be truncated to 'EnterYCoordinatetoPlotCrossshoreprofilebelowEditField_4ValueCha'.
+intialize the model with input
+setup geometry
+calculate bathymetry
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+Warning: Polynomial is not unique; degree >= number of data points.
+L:\guibathy_webinar\guibathy_projects\rudee_20220209T1734\pbTool
+
+pbPlotTran = 
+
+  struct with fields:
+
+    orthoDir: "L:\guibathy_webinar\guibathy_projects\rudee_20220209T1734\orthos\uasFlight_2Hz_Orthos15ft\Local_grid\images"
+       sfile: "L:\guibathy_webinar\guibathy_projects\rudee_20220209T1734\orthos\uasFlight_2Hz_Orthos15ft\Local_grid\images\ortho_local_image_1644428040000.png"
+       bfile: "L:\guibathy_webinar\guibathy_projects\rudee_20220209T1734\orthos\uasFlight_2Hz_Orthos15ft\Local_grid\images\ortho_local_image_bright.png"
+       tfile: "L:\guibathy_webinar\guibathy_projects\rudee_20220209T1734\orthos\uasFlight_2Hz_Orthos15ft\Local_grid\images\ortho_local_image_timex.png"
+         pbZ: [44x101 double]
+
 Warning: File: C:\Users\Chonkosaurus\AppData\Local\Temp\Chonkosaurus\mcrCache9.9\guiBat0\guiBathy\uasToolbox.mlapp Line: 1405 Column: 18
 'ChooseImagerytoOverlayBathymetryOntopofButtonGroupSelectionChanged' exceeds the MATLAB maximum name length of 63 characters and will be truncated to 'ChooseImagerytoOverlayBathymetryOntopofButtonGroupSelectionChan'.
 Warning: File: C:\Users\Chonkosaurus\AppData\Local\Temp\Chonkosaurus\mcrCache9.9\guiBat0\guiBathy\uasToolbox.mlapp Line: 1514 Column: 18
