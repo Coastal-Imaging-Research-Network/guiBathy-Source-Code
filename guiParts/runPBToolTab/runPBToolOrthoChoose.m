@@ -77,8 +77,8 @@ set(app.UIAxes_15,'ydir','normal')
 
 
 %% Initial Guess for Desired Resolution
-app.UITable12.Data{1,1}=nanmean(diff(localX(1,:)))*5;
-app.UITable12.Data{1,2}=nanmean(diff(localY(:,1)))*5;
+app.UITable12.Data{1,1}=nanmean(diff(localX(1,:)));
+app.UITable12.Data{1,2}=nanmean(diff(localY(:,1)));
 
 
 %% Plot Dummy Cbathy
