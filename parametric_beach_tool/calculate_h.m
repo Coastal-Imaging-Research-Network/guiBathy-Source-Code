@@ -21,8 +21,8 @@ for iy = 1:length(data.y)
             else
                 dx = min_dx;
             end
-            
-            tolerance = 1.0; %for convergence, dx_mean must be within tolerance;
+           
+            tolerance = floor(data.feature_res); %for convergence, dx_mean must be within tolerance;
             convergence = 0;
             while convergence == 0
                 segment_indices = data.yshore >= data.y(iy)-dx & ...
