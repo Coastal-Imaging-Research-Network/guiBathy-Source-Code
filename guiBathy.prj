@@ -1,0 +1,392 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="197200023" file="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy.prj" location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code" name="guiBathy" preferred-package-location="C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>guiBathy</param.appname>
+    <param.icon>${PROJECT_ROOT}\guiBathy_resources\icon.ico</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\guiBathy_resources\icon_16.png</file>
+    </param.icons>
+    <param.version>2.0</param.version>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.summary>guiBathy is an easy to use GUI designed to obtain bathymetry estimates from hovering UAS videos of the nearshore environment.</param.summary>
+    <param.description>guiBathy provides an end-to-end solution for non subject-matter-experts to utilize commercial-off-the-shelf UAS to collect quantitative imagery of the nearshore by packaging robust photogrammetric and signal-processing algorithms into an easy to use software interface. More information on software use and data collection requirements can be found in the ERDC-CHL Technical Report: guiBathy: A Graphical User Interface to Estimate Nearshore Bathymetry from Hovering Unmanned Aerial System Imagery.</param.description>
+    <param.screenshot>${PROJECT_ROOT}\guiParts\helpFigures\splash2.png</param.screenshot>
+    <param.guid />
+    <param.installpath.string>\guiBathy\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\guiBathy\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\guiBathy\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\guiBathy\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\guiBathy</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>guiBathy_with_runtime_installer</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>true</param.create.log>
+    <param.log.file>guiBathy_logfile</param.log.file>
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	  -? 
+	 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 input arguments</param.help.text>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\uasToolbox.mlapp</file>
+    </fileset.main>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\cBathy\aerielle.m</file>
+      <file>${PROJECT_ROOT}\cBathy\alterAnalysisArray.m</file>
+      <file>${PROJECT_ROOT}\cBathy\analyzeBathyCollect.m</file>
+      <file>${PROJECT_ROOT}\cBathy\analyzeSingleBathyRun.m</file>
+      <file>${PROJECT_ROOT}\cBathy\analyzeSingleBathyRunAerielleNotCIL.m</file>
+      <file>${PROJECT_ROOT}\cBathy\analyzeSingleBathyRunFrommBW.m</file>
+      <file>${PROJECT_ROOT}\cBathy\argus02b.m</file>
+      <file>${PROJECT_ROOT}\cBathy\bathyCI.m</file>
+      <file>${PROJECT_ROOT}\cBathy\bathyFromKAlpha.m</file>
+      <file>${PROJECT_ROOT}\cBathy\cBathyTide.m</file>
+      <file>${PROJECT_ROOT}\cBathy\cBathyVersion.m</file>
+      <file>${PROJECT_ROOT}\cBathy\cBDebug.m</file>
+      <file>${PROJECT_ROOT}\cBathy\Contents.m</file>
+      <file>${PROJECT_ROOT}\cBathy\csmInvertKAlpha.m</file>
+      <file>${PROJECT_ROOT}\cBathy\democBathyVersion2p0.m</file>
+      <file>${PROJECT_ROOT}\cBathy\dispsol.m</file>
+      <file>${PROJECT_ROOT}\cBathy\docBathy.m</file>
+      <file>${PROJECT_ROOT}\cBathy\doKal.m</file>
+      <file>${PROJECT_ROOT}\cBathy\examineSingleBathyResult.m</file>
+      <file>${PROJECT_ROOT}\cBathy\findGoodTransects.m</file>
+      <file>${PROJECT_ROOT}\cBathy\findInterpMap.m</file>
+      <file>${PROJECT_ROOT}\cBathy\findKAlphaSeed.m</file>
+      <file>${PROJECT_ROOT}\cBathy\findProcessError.m</file>
+      <file>${PROJECT_ROOT}\cBathy\fixBathyTide.m</file>
+      <file>${PROJECT_ROOT}\cBathy\KalmanFilterBathy.m</file>
+      <file>${PROJECT_ROOT}\cBathy\kInvertDepthModel.m</file>
+      <file>${PROJECT_ROOT}\cBathy\LICENSE.txt</file>
+      <file>${PROJECT_ROOT}\cBathy\listfDependentResultsForOnePoint.m</file>
+      <file>${PROJECT_ROOT}\cBathy\LMFnlsq.m</file>
+      <file>${PROJECT_ROOT}\cBathy\logic.txt</file>
+      <file>${PROJECT_ROOT}\cBathy\makeKalmanBathySeed.m</file>
+      <file>${PROJECT_ROOT}\cBathy\matlab2Epoch.m</file>
+      <file>${PROJECT_ROOT}\cBathy\plotBathyCollect.m</file>
+      <file>${PROJECT_ROOT}\cBathy\plotBathyCollectKalman.m</file>
+      <file>${PROJECT_ROOT}\cBathy\plotBathyKalmanStep.m</file>
+      <file>${PROJECT_ROOT}\cBathy\plotPhaseTile.m</file>
+      <file>${PROJECT_ROOT}\cBathy\plotStacksAndPhaseMaps.m</file>
+      <file>${PROJECT_ROOT}\cBathy\predictCSM.m</file>
+      <file>${PROJECT_ROOT}\cBathy\prepareTiles.m</file>
+      <file>${PROJECT_ROOT}\cBathy\prepBathyInput.m</file>
+      <file>${PROJECT_ROOT}\cBathy\README.md</file>
+      <file>${PROJECT_ROOT}\cBathy\res.m</file>
+      <file>${PROJECT_ROOT}\cBathy\res2.m</file>
+      <file>${PROJECT_ROOT}\cBathy\runningFilterBathy.m</file>
+      <file>${PROJECT_ROOT}\cBathy\SampleParametersFile.m</file>
+      <file>${PROJECT_ROOT}\cBathy\showcBathyTimeSeriesMovie.m</file>
+      <file>${PROJECT_ROOT}\cBathy\showHourlyBathyResults.m</file>
+      <file>${PROJECT_ROOT}\cBathy\showHourlyHErrResults.m</file>
+      <file>${PROJECT_ROOT}\cBathy\showHourlyKalmanResults.m</file>
+      <file>${PROJECT_ROOT}\cBathy\showWaveVarianceMap.m</file>
+      <file>${PROJECT_ROOT}\cBathy\tstat3.m</file>
+      <file>${PROJECT_ROOT}\cBathy\useInterpMap.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\localTransformFunctions\localTransformEquiGrid.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\localTransformFunctions\localTransformExtrinsics.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\localTransformFunctions\localTransformPoints.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\caltech2CIRN.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\cameraSeamBlend.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\CIRNangles2R.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\distortUV.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\distUV2XYZ.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\extrinsicsSolver.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\imageRectifier.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\intrinsicsExtrinsics2P.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\IOEOSolver.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\rectificationPlotter.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\undistortUV.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\xyz2DistUV.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\photogrammetryFunctions\xyz2DistUVIOEO.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\pixelInstrumentFunctions\pixInstPrepXYZ.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\pixelInstrumentFunctions\stackPlotter.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\stabilizationFunctions\thresholdCenter.m</file>
+      <file>${PROJECT_ROOT}\CIRN_CoreFunctions\stabilizationFunctions\Untitled.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\addGCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\assignGCPstartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\clearGCPXYZTab.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\clickGCPsFrameChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\clickGCPsStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\clickGCPsUVdChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\deleteGCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\help_gcp.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\saveGCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickGCPsTab\saveGCPXYZ.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\addSCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\clickSCPsFrameChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\clickSCPsStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\deleteSCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\help_scpclick.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\help_scpThresh.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\initializeSCPThresh.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\replotSCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\saveSCP.m</file>
+      <file>${PROJECT_ROOT}\guiParts\clickSCPsTab\scpThreshold.mlapp</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryChooseCB.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryClim.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryImageChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryOverlaySlider.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryPlotProfile.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryReplot.asv</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryReplot.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportBathymetryStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\exportcBathyButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\exportBathymetryTab\help_exportCbathy.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\extrinsicsFrameSetChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\extrinsicsResetSolve.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\gcpSolveButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\gcpXYZChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\help_extrinsics.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\initialExtrinsicsStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\intrinsicsFrameSetChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\resetIOEOFig.asv</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\resetIOEOFig.m</file>
+      <file>${PROJECT_ROOT}\guiParts\extrinsicsTab\saveInitialExtrinsics.m</file>
+      <file>${PROJECT_ROOT}\guiParts\generateFramesTab\clearFramesTab.m</file>
+      <file>${PROJECT_ROOT}\guiParts\generateFramesTab\extractFramesButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\generateFramesTab\generateFramesStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\chngOrigin.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\gridGenerationFrameChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\gridGenerationSave.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\gridGenerationSolutionChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\help_gridgen.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\help_rotation.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\initialGeorectificationStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\orthoGenFrameChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\gridGenerationTab\replotGridOrtho.m</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\cbathyHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\Copy_of_estimateHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\Copy_of_featureHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\ERDCLOGO.PNG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\estimateHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\exportcHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\extrinsicsHelp.jpg</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\featureHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\gcpHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\gitsplash.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\gridgenHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\icon.png</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\intrinsicsHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\lby_use.png</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\lby_use_old.png</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\pbexportHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\rotationHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\scpclickHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\scpthreshHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\splash.jpg</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\splash2.png</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\splash2.tif</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\splash_screen.pptx</file>
+      <file>${PROJECT_ROOT}\guiParts\helpFigures\timestackHelp.JPG</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\clearLoadIntrinsicsTab.m</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\clearNoDistortionTab.m</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\help_intrinsics.m</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\loadIntrinsics.m</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\loadIntrinsicsStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\loadNoDistortion.m</file>
+      <file>${PROJECT_ROOT}\guiParts\loadIntrinsicsTab\saveIntrinsics.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\addROI.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\findFastPoints.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\noDistStabilizationFrameChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\noDistStabilizationSave.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\noDistStabilizationStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\noDistStabilizeButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\nodistStabilizationTab\noDistStablizationReset.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthophotoGenerationTab\orthoGenFrameChoose2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthophotoGenerationTab\orthoGenReset.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthophotoGenerationTab\orthoGenSelectGrid.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthophotoGenerationTab\orthoGenSolutionChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthophotoGenerationTab\orthophotoGenerationStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthophotoGenerationTab\orthoStartButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthoPhotoMovieTab\orthoMovieChngFname.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthoPhotoMovieTab\orthoMovieOrthoSetChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthoPhotoMovieTab\orthoMovieReset.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthoPhotoMovieTab\orthoMovieStartButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthoPhotoMovieTab\orthoMovieTypeSelect.m</file>
+      <file>${PROJECT_ROOT}\guiParts\orthoPhotoMovieTab\orthophotoMovieStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\help_pbexport.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyBlender.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyCBChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyChooseImage.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyCLim.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyExportButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyOverlay.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyPBChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyPlotProfile.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyRePlot.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbExportBathyTab\pbExportBathyStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpCBathyChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpColorMaxDepth1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpColorMaxDepth2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpColorMinDepth1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpColorMinDepth2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpImageChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpOverlayChange1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpOverlayChange2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpPbChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpPlotProfile.m</file>
+      <file>${PROJECT_ROOT}\guiParts\pbSolutionExplorationTab\pbSolutionExpStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\projectInitiationTab\loadProject.m</file>
+      <file>${PROJECT_ROOT}\guiParts\projectInitiationTab\loadVideos.m</file>
+      <file>${PROJECT_ROOT}\guiParts\projectInitiationTab\newProject.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\cbathyRunReplot.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\help_cbathy.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\runCbathyreset.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\runCbathyStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\runCbathyTSChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\saveCbathyResults.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runCBathyTab\startcBathyButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\help_estimate.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\help_feature.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\pbToolCBathyEstimate.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\pbToolResetSandbar.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\pbToolResetShoreline.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolChangeCBathy.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolChangeOffshoreX.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolChangeSeaBarX.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolclickBar.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolclickShoreline.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolExtrapolateFeatures.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolOrthoChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolOverlayTran.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolSaveBathy.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\runPBToolStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\runPBToolTab\startPBToolButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\solutionExplorationChooseCB.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\SolutionExplorationColorbarMax1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\SolutionExplorationColorbarMax2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\SolutionExplorationColorbarMin1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\SolutionExplorationColorbarMin2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\solutionExplorationImageChoose1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\SolutionExplorationOverlayTran1.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\SolutionExplorationOverlayTran2.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\solutionExplorationProfilePlot.m</file>
+      <file>${PROJECT_ROOT}\guiParts\solutionExplorationTab\solutionExplorationStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stabilizationFrameChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stabilizationInitialSolChoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stabilizationSaveButton.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stabilizationSCPchoose.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stabilizationSolve.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stabilizationStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\stabilizationTab\stablizationReset.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\clickCbathyStartup.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\help_timestack.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\timestackBuildTimestack.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\timestackOrthoSelect.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\timestackPlotRes.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\timestackReset.m</file>
+      <file>${PROJECT_ROOT}\guiParts\timestackGenTab\timestackSave.m</file>
+      <file>${PROJECT_ROOT}\merge_data\euclidean_dist.m</file>
+      <file>${PROJECT_ROOT}\merge_data\merge_data.m</file>
+      <file>${PROJECT_ROOT}\merge_data\RBF.m</file>
+      <file>${PROJECT_ROOT}\merge_data\seuclidean_dist.m</file>
+      <file>${PROJECT_ROOT}\merge_data\sqeuclidean_dist.m</file>
+      <file>${PROJECT_ROOT}\merge_data\test_merge_data.m</file>
+      <file>${PROJECT_ROOT}\merge_data\truthcompare.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\adjust_tide.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\bensonCoord_local_crm.mat</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\boundary_condition.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\brittany_tide_test.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\calculate_h.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\composite_profile_func.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\compute_discontinuity_slope.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\cut_oscillation.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\determine_exp_coefficients.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\duck_20151003_bar_xy.txt</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\duck_20151003_shoreline_xy.txt</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\eval_parametric_tool.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\exp_decay_func.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\generate_h_barred.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\initializeParametric.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\interp_feature.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\LMFsolve.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\montauk_usgs_local.mat</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\phase_structure_func.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\read_survey_lines.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\run_parametric.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\S_exp_component_func.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\setup_geometry.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\solve_boundary_equations.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\solve_exp_coefficients.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\spatial_bar_variability_func.m</file>
+      <file>${PROJECT_ROOT}\parametric_beach_tool\test_parametric_tool.m</file>
+    </fileset.resources>
+    <fileset.package>
+      <file>${PROJECT_ROOT}\guiBathyCompiled\guiBathy\for_redistribution_files_only\ERDC-CHL TR-21-3.pdf</file>
+    </fileset.package>
+    <fileset.depfun />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\guiBathy\for_testing" name="guiBathy.exe" optional="false">C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy\for_testing\guiBathy.exe</file>
+      <file location="${PROJECT_ROOT}\guiBathy\for_testing" name="readme.txt" optional="true">C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\guiBathy\for_testing" name="splash.png" optional="false">C:\Users\Chonkosaurus\Documents\GitHub\guiBathy-Source-Code\guiBathy\for_testing\splash.png</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2020b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
